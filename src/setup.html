@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>Spidey Reminder - Connect your calendar</title>
+<link rel="stylesheet" href="setup.css">
+</head>
+<body>
+  <header>
+    <img src="../assets/icon.png" alt="" class="logo">
+    <div>
+      <h1>Connect your calendar</h1>
+      <p class="sub">Paste your calendar's private link. No sign-in or Google Cloud setup needed.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="steps">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-tab="google" aria-selected="true">Google</button>
+        <button role="tab" data-tab="outlook" aria-selected="false">Outlook</button>
+        <button role="tab" data-tab="apple" aria-selected="false">Apple iCloud</button>
+      </div>
+
+      <ol data-panel="google">
+        <li>Open <a href="#" data-open="https://calendar.google.com/calendar/r/settings">Google Calendar settings</a>.</li>
+        <li>On the left, under <b>Settings for my calendars</b>, click your calendar.</li>
+        <li>Scroll to <b>Integrate calendar</b> and copy the <b>Secret address in iCal format</b>.</li>
+      </ol>
+      <ol data-panel="outlook" hidden>
+        <li>Open <a href="#" data-open="https://outlook.office.com/calendar/options/calendar/SharedCalendars">Outlook calendar sharing settings</a>.</li>
+        <li>Under <b>Publish a calendar</b>, pick your calendar and <b>Can view all details</b>, then <b>Publish</b>.</li>
+        <li>Copy the <b>ICS</b> link.</li>
+      </ol>
+      <ol data-panel="apple" hidden>
+        <li>In the Calendar app (or icloud.com), right-click your calendar → <b>Share Calendar</b>.</li>
+        <li>Turn on <b>Public Calendar</b> and copy the link (it starts with <code>webcal://</code>).</li>
+      </ol>
+    </section>
+
+    <label for="link">Calendar link</label>
+    <div class="row">
+      <input id="link" type="password" spellcheck="false" autocomplete="off"
+             placeholder="https://calendar.google.com/calendar/ical/…/basic.ics">
+      <button id="reveal" class="ghost" type="button" aria-label="Show link">Show</button>
+    </div>
+    <p class="hint">🔒 Treat this link like a password. It is stored only on this computer (encrypted) and is never shared.</p>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    <button id="remove" class="ghost danger" type="button" hidden>Remove link</button>
+    <span class="spacer"></span>
+    <button id="cancel" class="ghost" type="button">Cancel</button>
+    <button id="save" class="primary" type="button">Test &amp; save</button>
+  </footer>
+
+  <script src="setup.js"></script>
+</body>
+</html>

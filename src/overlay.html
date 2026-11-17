@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>Spidey Reminder</title>
+<link rel="stylesheet" href="overlay.css">
+</head>
+<body>
+  <!-- Web hangs in the top-right corner of the screen -->
+  <img id="web" src="../assets/web.png" alt="">
+
+  <!-- The rig pivots from the anchor point: thread + Spider-Man swing together -->
+  <div id="rig">
+    <div id="dropper">
+      <div id="thread"></div>
+      <img id="spidey" src="../assets/spidey.png" alt="">
+    </div>
+  </div>
+
+  <div id="bubble" role="alert" aria-live="assertive">
+    <div class="tag">Spidey-sense tingling!</div>
+    <div id="title" class="title"></div>
+    <div id="when" class="when"></div>
+    <div id="meta" class="meta"></div>
+    <div class="actions">
+      <button id="join" class="primary" hidden>Join meeting</button>
+      <button id="open">Open in Calendar</button>
+    </div>
+    <div class="snooze">
+      <button id="snooze">Remind me in 2 min</button>
+    </div>
+  </div>
+
+  <script src="overlay.js"></script>
+</body>
+</html>

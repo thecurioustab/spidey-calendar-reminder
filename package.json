@@ -1,0 +1,22 @@
+{
+  "name": "spidey-calendar-reminder",
+  "version": "1.0.0",
+  "description": "Spider-Man drops down from the top-right of your screen to remind you about meetings and your own reminders.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "demo": "electron . --demo",
+    "prepare-assets": "node scripts/prepare-assets.js",
+    "test": "node scripts/test-ics.js && node scripts/test-reminders.js",
+    "setup": "electron . --setup",
+    "reminders": "electron . --reminders"
+  },
+  "dependencies": {
+    "electron": "^33.4.11",
+    "ical-expander": "^3.2.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  },
+  "private": true
+}

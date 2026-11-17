@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>Spidey Reminder - My reminders</title>
+<link rel="stylesheet" href="setup.css">
+<link rel="stylesheet" href="reminders.css">
+</head>
+<body>
+  <header>
+    <img src="../assets/icon.png" alt="" class="logo">
+    <div>
+      <h1>My reminders</h1>
+      <p class="sub">Spider-Man will drop in for these, no calendar needed.</p>
+    </div>
+  </header>
+
+  <main>
+    <form id="form" class="card" novalidate>
+      <label for="title">What should I remind you about?</label>
+      <input id="title" type="text" maxlength="200" placeholder="e.g. Call with Priya, Take a break, Stand-up" required>
+
+      <div class="grid">
+        <div>
+          <label for="date">Date</label>
+          <input id="date" type="date" required>
+        </div>
+        <div>
+          <label for="time">Time</label>
+          <input id="time" type="time" required>
+        </div>
+        <div>
+          <label for="repeat">Repeat</label>
+          <select id="repeat">
+            <option value="none">Never</option>
+            <option value="daily">Every day</option>
+            <option value="weekdays">Weekdays (Mon–Fri)</option>
+            <option value="weekly">Every week</option>
+          </select>
+        </div>
+        <div>
+          <label for="lead">Remind me</label>
+          <select id="lead">
+            <option value="">Default (10 min before)</option>
+            <option value="0">At the time</option>
+            <option value="5">5 min before</option>
+            <option value="10">10 min before</option>
+            <option value="15">15 min before</option>
+            <option value="30">30 min before</option>
+            <option value="60">1 hour before</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="link">Meeting link <span class="optional">(optional)</span></label>
+      <input id="link" type="url" spellcheck="false" placeholder="https://meet.google.com/… or a Zoom / Teams link">
+
+      <div class="formfoot">
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+        <button id="add" class="primary" type="submit">Add reminder</button>
+      </div>
+    </form>
+
+    <h2>Coming up</h2>
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty" hidden>No reminders yet. Add one above.</p>
+  </main>
+
+  <footer>
+    <button id="calendar" class="ghost" type="button">Connect a calendar…</button>
+    <span class="spacer"></span>
+    <button id="close" class="ghost" type="button">Close</button>
+  </footer>
+
+  <script src="reminders-window.js"></script>
+</body>
+</html>
